@@ -1,7 +1,18 @@
 import React from "react";
+import MainLogic from "./Components/MainLogic";
 
 function App() {
-  return <div>App</div>;
+  const ACTIONS = {
+    ROCK: "rock",
+    PAPER: "paper",
+    SCISSORS: "scissors",
+  };
+
+  return (
+    <>
+      <MainLogic ACTIONS={ACTIONS} />
+    </>
+  );
 }
 
 export default App;
