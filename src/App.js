@@ -1,5 +1,5 @@
 import React from "react";
-import MainLogic from "./Components/MainLogic";
+import MainLogic from "./Components/MainLogic/MainLogic";
 
 function App() {
   const ACTIONS = {
