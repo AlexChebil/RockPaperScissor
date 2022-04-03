@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-rock.svg";
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
+import "./MainLogic.scss";
 
 function MainLogic({ ACTIONS }) {
   const [houseSelected, setHouseSelected] = useState(
@@ -49,17 +50,40 @@ function MainLogic({ ACTIONS }) {
   return (
     <>
       <div className='mainGame'>
-        <button onClick={() => dispatch({ type: ACTIONS.ROCK })}>
-          <img src={rockSvg} alt='SVG HERE' />
-        </button>
+        <div className='houseSelected'>
+          {houseSelected === ACTIONS.ROCK ? (
+            <img id='rockSVG' src={rockSvg} alt='SVG HERE' />
+          ) : houseSelected === ACTIONS.PAPER ? (
+            <img src={paperSvg} alt='SVG HERE' />
+          ) : (
+            <img src={scissorsSvg} alt='SVG HERE' />
+          )}
+        </div>
 
-        <button onClick={() => dispatch({ type: ACTIONS.PAPER })}>
-          <img src={paperSvg} alt='SVG HERE' />
-        </button>
+        <div className='mainGameFlexCont'>
+          <div
+            className='rockPaperScissor'
+            onClick={() => dispatch({ type: ACTIONS.ROCK })}
+          >
+            <img id='rockSVG' src={rockSvg} alt='SVG HERE' />
+          </div>
 
-        <button onClick={() => dispatch({ type: ACTIONS.SCISSORS })}>
-          <img src={scissorsSvg} alt='SVG HERE' />
-        </button>
+          <span className='line'></span>
+
+          <div
+            className='rockPaperScissor'
+            onClick={() => dispatch({ type: ACTIONS.PAPER })}
+          >
+            <img src={paperSvg} alt='SVG HERE' />
+          </div>
+
+          <div
+            className='rockPaperScissor'
+            onClick={() => dispatch({ type: ACTIONS.SCISSORS })}
+          >
+            <img src={scissorsSvg} alt='SVG HERE' />
+          </div>
+        </div>
       </div>
     </>
   );
