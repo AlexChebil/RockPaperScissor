@@ -1,5 +1,6 @@
 import React from "react";
 import MainLogic from "./Components/MainLogic/MainLogic";
+import Header from "./Components/Header/Header";
 
 function App() {
   const ACTIONS = {
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <MainLogic ACTIONS={ACTIONS} />
     </>
   );

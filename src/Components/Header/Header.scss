@@ -1,0 +1,20 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2em 35em;
+    padding: 1em;
+    border: 3px solid gray;
+    border-radius: 2em;
+    .score{
+        margin: .25em;
+        margin-left: 27em;
+        padding: 0em 2.25em;
+        border-radius: 2em;
+        background-color: whitesmoke;
+        text-align: center;
+        mix-blend-mode: screen; 
+
+    }
+
+    
+}
