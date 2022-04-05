@@ -7,17 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(
   0deg,
-  hsl(240deg 100% 20%) 0%,
-  hsl(236deg 98% 20%) 21%,
-  hsl(233deg 98% 20%) 30%,
-  hsl(229deg 96% 20%) 39%,
-  hsl(226deg 96% 20%) 46%,
-  hsl(222deg 94% 21%) 54%,
-  hsl(218deg 94% 21%) 61%,
-  hsl(215deg 92% 21%) 69%,
-  hsl(211deg 92% 21%) 79%,
-  hsl(208deg 91% 21%) 100%
-)fixed;
+    hsl(240deg 100% 20%) 0%,
+    hsl(236deg 98% 20%) 21%,
+    hsl(233deg 98% 20%) 30%,
+    hsl(229deg 96% 20%) 39%,
+    hsl(226deg 96% 20%) 46%,
+    hsl(222deg 94% 21%) 54%,
+    hsl(218deg 94% 21%) 61%,
+    hsl(215deg 92% 21%) 69%,
+    hsl(211deg 92% 21%) 79%,
+    hsl(208deg 91% 21%) 100%
+  );
+  background-attachment: fixed;
+  overflow-x: hidden;
+  
 }
 
 code {

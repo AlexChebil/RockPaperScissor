@@ -5,11 +5,11 @@
         position: absolute;
         z-index: 1;
         width: 40em;
-        margin-top: 3.25em;
+        margin-top: 4.5em;
         height: .8em;
         background-color: rgba(77, 77, 77, 0.434);
     }
-    .houseSelected{
+    /* .houseSelected{
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -25,7 +25,7 @@
             width: 3em;
         }
         
-    }
+    } */
     
     
 }
@@ -33,9 +33,34 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 45vh;
+    margin-top: 17.5em;
     flex-wrap: wrap;
-    
+    transform: scale(1.5);
+
+    .rock{
+        border: 1em solid rgb(218, 43, 107);
+        box-shadow: 4px 4px rgb(137, 13, 36);
+        background-color: red;
+    }
+    .paper{
+        border: 1em solid rgb(55, 43, 226);
+        box-shadow: 4px 4px rgb(19, 21, 162);
+    } 
+
+    .scissors{
+        border: 1em solid rgb(234, 175, 55);
+        box-shadow: 4px 4px rgb(158, 110, 13);
+    } 
+
+   
+
+
+
+
+    .rockPaperScissor:active{
+        filter: drop-shadow(5px 5px 1px rgb(0, 0, 0));
+        transform: translateY(.5em);
+    }
 
     .rockPaperScissor{
         margin: auto 5em;
@@ -43,10 +68,11 @@
         width: 3em;
         height: 3em;
         border-radius: 8em;
-        border: none;
         background-color: whitesmoke;
         position: relative;
         z-index: 2;
+
+        
         
         img{
             width: 2.5em;   
@@ -56,5 +82,6 @@
             /* to compensate for the rockSVG smaller base smaller size */
 
         }   
+        
     } 
 }
