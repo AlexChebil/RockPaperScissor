@@ -3,6 +3,7 @@ import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockP
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
 import "./MainLogic.scss";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { houseContext } from "../Context/Context";
 
@@ -17,7 +18,8 @@ function MainLogic({ ACTIONS }) {
         console.log(ACTIONS.userSelected);
         ACTIONS.userSelected = ACTIONS.ROCK;
         console.log(ACTIONS.userSelected);
-        setnewUserSelected(1);
+        setnewUserSelected((prev) => prev + 1);
+        console.log(newUserSelected);
 
         if (houseSelected.houseSelected === ACTIONS.PAPER) {
           console.log("YOU LOST");
@@ -31,7 +33,7 @@ function MainLogic({ ACTIONS }) {
 
       case ACTIONS.PAPER:
         ACTIONS.userSelected = ACTIONS.PAPER;
-        setnewUserSelected(2);
+        setnewUserSelected((prev) => prev + 1);
 
         if (houseSelected.houseSelected === ACTIONS.SCISSORS) {
           console.log("YOU LOST");
@@ -44,7 +46,7 @@ function MainLogic({ ACTIONS }) {
 
       case ACTIONS.SCISSORS:
         ACTIONS.userSelected = ACTIONS.SCISSORS;
-        setnewUserSelected(3);
+        setnewUserSelected((prev) => prev + 1);
 
         if (houseSelected.houseSelected === ACTIONS.ROCK) {
           console.log("YOU LOST");
@@ -67,7 +69,11 @@ function MainLogic({ ACTIONS }) {
       <div className='mainGame'>
         <div className='Proceed'>
           <h1>{ACTIONS.userSelected.toUpperCase()}</h1>
-          <Link to='/Game'>aaaaa</Link>
+          <Link to='/Game'>
+            <Button id='buttonMUI' variant='outlined'>
+              Proceed
+            </Button>
+          </Link>
         </div>
         <div className='mainGameFlexCont'>
           <div>

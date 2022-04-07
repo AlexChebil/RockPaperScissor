@@ -10,7 +10,7 @@ function App() {
     ROCK: "rock",
     PAPER: "paper",
     SCISSORS: "scissors",
-    userSelected: "",
+    userSelected: "rock",
   };
   const [houseSelected, setHouseSelected] = useState(
     Object.values(ACTIONS)[Math.floor(Math.random() * 3)]
