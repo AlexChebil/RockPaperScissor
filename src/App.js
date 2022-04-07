@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainLogic from "./Components/MainLogic/MainLogic";
 import Header from "./Components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,10 +10,12 @@ function App() {
     ROCK: "rock",
     PAPER: "paper",
     SCISSORS: "scissors",
+    userSelected: "",
   };
   const [houseSelected, setHouseSelected] = useState(
     Object.values(ACTIONS)[Math.floor(Math.random() * 3)]
   );
+
   return (
     <>
       <Header />
@@ -21,7 +23,7 @@ function App() {
         <houseContext.Provider value={{ houseSelected }}>
           <Routes>
             <Route path='/' element={<MainLogic ACTIONS={ACTIONS} />} />
-            <Route path='Game' element={<Game />} />
+            <Route path='Game' element={<Game ACTIONS={ACTIONS} />} />
           </Routes>
         </houseContext.Provider>
       </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-rock.svg";
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
@@ -8,11 +8,17 @@ import { houseContext } from "../Context/Context";
 
 function MainLogic({ ACTIONS }) {
   const houseSelected = useContext(houseContext);
+  const [newUserSelected, setnewUserSelected] = useState(0);
   const [state, dispatch] = useReducer(reduF, ACTIONS);
 
   function reduF(state, action) {
     switch (action.type) {
       case ACTIONS.ROCK:
+        console.log(ACTIONS.userSelected);
+        ACTIONS.userSelected = ACTIONS.ROCK;
+        console.log(ACTIONS.userSelected);
+        setnewUserSelected(1);
+
         if (houseSelected.houseSelected === ACTIONS.PAPER) {
           console.log("YOU LOST");
         } else if (action.type === houseSelected.houseSelected) {
@@ -22,7 +28,11 @@ function MainLogic({ ACTIONS }) {
         }
 
         break;
+
       case ACTIONS.PAPER:
+        ACTIONS.userSelected = ACTIONS.PAPER;
+        setnewUserSelected(2);
+
         if (houseSelected.houseSelected === ACTIONS.SCISSORS) {
           console.log("YOU LOST");
         } else if (action.type === houseSelected.houseSelected) {
@@ -31,7 +41,11 @@ function MainLogic({ ACTIONS }) {
           console.log("YOU WON");
         }
         break;
+
       case ACTIONS.SCISSORS:
+        ACTIONS.userSelected = ACTIONS.SCISSORS;
+        setnewUserSelected(3);
+
         if (houseSelected.houseSelected === ACTIONS.ROCK) {
           console.log("YOU LOST");
         } else if (action.type === houseSelected.houseSelected) {
@@ -46,46 +60,39 @@ function MainLogic({ ACTIONS }) {
     }
   }
 
+  useEffect(() => {}, [newUserSelected]);
+
   return (
     <>
       <div className='mainGame'>
-        {/* <div className='houseSelected'>
-          {houseSelected === ACTIONS.ROCK ? (
-            <img id='rockSVG' src={rockSvg} alt='SVG HERE' />
-          ) : houseSelected === ACTIONS.PAPER ? (
-            <img src={paperSvg} alt='SVG HERE' />
-          ) : (
-            <img src={scissorsSvg} alt='SVG HERE' />
-          )}
-        </div> */}
+        <div className='Proceed'>
+          <h1>{ACTIONS.userSelected.toUpperCase()}</h1>
+          <Link to='/Game'>aaaaa</Link>
+        </div>
         <div className='mainGameFlexCont'>
-          <Link to='/Game'>
+          <div>
             <div
               className='rockPaperScissor rock'
               onClick={() => dispatch({ type: ACTIONS.ROCK })}
             >
               <img id='rockSVG' src={rockSvg} alt='SVG HERE' />
             </div>
-          </Link>
+          </div>
 
           <span className='line'></span>
 
-          <Link to='/Game'>
-            <div
-              className='rockPaperScissor paper'
-              onClick={() => dispatch({ type: ACTIONS.PAPER })}
-            >
-              <img src={paperSvg} alt='SVG HERE' />
-            </div>
-          </Link>
-          <Link to='/Game'>
-            <div
-              className='rockPaperScissor scissors'
-              onClick={() => dispatch({ type: ACTIONS.SCISSORS })}
-            >
-              <img src={scissorsSvg} alt='SVG HERE' />
-            </div>
-          </Link>
+          <div
+            className='rockPaperScissor paper'
+            onClick={() => dispatch({ type: ACTIONS.PAPER })}
+          >
+            <img src={paperSvg} alt='SVG HERE' />
+          </div>
+          <div
+            className='rockPaperScissor scissors'
+            onClick={() => dispatch({ type: ACTIONS.SCISSORS })}
+          >
+            <img src={scissorsSvg} alt='SVG HERE' />
+          </div>
         </div>
       </div>
     </>
