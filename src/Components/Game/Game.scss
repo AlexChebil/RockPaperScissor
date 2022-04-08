@@ -1,3 +1,13 @@
+ .winningState{
+    font-size: 4em;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: .5em;
+    margin: 1em 12em;
+    mix-blend-mode: screen;
+    border-radius: .5em;
+}
+
 .userSelected, .houseSelected{
     
     img{
@@ -5,15 +15,40 @@
         padding: 2em;
         width: 3em;
         height: 3em;
-        border-radius: 8em;
+        //border-radius: 8em;
         background-color: whitesmoke;      
         font-size: 1.75em; 
     }
             
 
+} 
+
+.userSelected{
+    img{
+        border: 1em solid rgb(218, 43, 107);
+        box-shadow: 4px 4px rgb(137, 13, 36);
+    }
+    
+
 }
+
+.houseSelected{
+    img{
+        border: 1em solid rgb(234, 175, 55);
+        box-shadow: 4px 4px rgb(158, 110, 13);
+    }
+} 
+
+
+
 .flexCont{
     display: flex;
     justify-content: center;
     
+}
+
+.test{
+    background-color: red;
+    padding: 2em;
+    border-radius: 8em;
 }
