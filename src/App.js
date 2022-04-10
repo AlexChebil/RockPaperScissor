@@ -11,14 +11,14 @@ function App() {
     PAPER: "paper",
     SCISSORS: "scissors",
     userSelected: "rock",
+    SCORE: 0,
   };
-  const [houseSelected, setHouseSelected] = useState(
-    Object.values(ACTIONS)[Math.floor(Math.random() * 3)]
-  );
+
+  const houseSelected = Object.values(ACTIONS)[Math.floor(Math.random() * 3)];
 
   return (
     <>
-      <Header />
+      <Header ACTIONS={ACTIONS} />
       <BrowserRouter>
         <houseContext.Provider value={{ houseSelected }}>
           <Routes>

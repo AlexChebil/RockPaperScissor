@@ -1,60 +1,33 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-rock.svg";
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
 import "./MainLogic.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { houseContext } from "../Context/Context";
 
 function MainLogic({ ACTIONS }) {
-  const houseSelected = useContext(houseContext);
   const [newUserSelected, setnewUserSelected] = useState(0);
   const [state, dispatch] = useReducer(reduF, ACTIONS);
 
   function reduF(state, action) {
     switch (action.type) {
       case ACTIONS.ROCK:
-        console.log(ACTIONS.userSelected);
         ACTIONS.userSelected = ACTIONS.ROCK;
-        console.log(ACTIONS.userSelected);
-        setnewUserSelected((prev) => prev + 1);
-        console.log(newUserSelected);
-
-        if (houseSelected.houseSelected === ACTIONS.PAPER) {
-          console.log("YOU LOST");
-        } else if (action.type === houseSelected.houseSelected) {
-          console.log("Equality");
-        } else {
-          console.log("YOU WON");
-        }
+        setnewUserSelected((prev) => prev + 1); //dummy var to update the selected state on the dom
 
         break;
 
       case ACTIONS.PAPER:
         ACTIONS.userSelected = ACTIONS.PAPER;
-        setnewUserSelected((prev) => prev + 1);
+        setnewUserSelected((prev) => prev + 1); //dummy var to update the selected state on the dom
 
-        if (houseSelected.houseSelected === ACTIONS.SCISSORS) {
-          console.log("YOU LOST");
-        } else if (action.type === houseSelected.houseSelected) {
-          console.log("Equality");
-        } else {
-          console.log("YOU WON");
-        }
         break;
 
       case ACTIONS.SCISSORS:
         ACTIONS.userSelected = ACTIONS.SCISSORS;
-        setnewUserSelected((prev) => prev + 1);
+        setnewUserSelected((prev) => prev + 1); //dummy var to update the selected state on the dom
 
-        if (houseSelected.houseSelected === ACTIONS.ROCK) {
-          console.log("YOU LOST");
-        } else if (action.type === houseSelected.houseSelected) {
-          console.log("Equality");
-        } else {
-          console.log("YOU WON");
-        }
         break;
 
       default:
@@ -62,14 +35,12 @@ function MainLogic({ ACTIONS }) {
     }
   }
 
-  useEffect(() => {}, [newUserSelected]);
-
   return (
     <>
       <div className='mainGame'>
         <div className='Proceed'>
           <h1>{ACTIONS.userSelected.toUpperCase()}</h1>
-          <Link to='/Game'>
+          <Link style={{ textDecoration: "none" }} to='/Game'>
             <Button id='buttonMUI' variant='outlined'>
               Proceed
             </Button>

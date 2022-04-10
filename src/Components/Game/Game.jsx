@@ -4,8 +4,10 @@ import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockP
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
 import "./Game.scss";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
-function Game({ ACTIONS }) {
+function Game({ ACTIONS, setScore }) {
   const { houseSelected } = useContext(houseContext);
   const [userWon, setUserWon] = useState();
 
@@ -18,6 +20,8 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
+          ACTIONS.SCORE += 1;
+          //console.log(ACTIONS.SCORE);
         }
         break;
 
@@ -28,6 +32,7 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
+          //setScore((prev) => prev + 1);
         }
         break;
 
@@ -38,6 +43,7 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
+          //setScore((prev) => prev + 1);
         }
         break;
       default:
@@ -50,18 +56,23 @@ function Game({ ACTIONS }) {
       <h1 className='winningState'> {userWon} </h1>
 
       <div className='flexCont'>
-        <div className='userSelected '>
+        <div
+          className={`userSelected ${userWon === "You Won" ? "win" : null} `}
+        >
           {ACTIONS.userSelected && ACTIONS.userSelected === ACTIONS.PAPER ? (
-            <div className='test'>
-              <img src={paperSvg} alt='' />
-            </div>
+            <img src={paperSvg} alt='' />
           ) : ACTIONS.userSelected === ACTIONS.ROCK ? (
-            <img src={rockSvg} alt='' />
+            <div className='test'>
+              <img src={rockSvg} alt='' />
+            </div>
           ) : (
             <img src={scissorsSvg} alt='' />
           )}
         </div>
-        <div className='houseSelected'>
+
+        <div
+          className={`houseSelected ${userWon === "You Lost" ? "win" : null}`}
+        >
           {houseSelected === ACTIONS.PAPER ? (
             <img src={paperSvg} alt='' />
           ) : houseSelected === ACTIONS.ROCK ? (
@@ -71,6 +82,11 @@ function Game({ ACTIONS }) {
           )}
         </div>
       </div>
+      <Link style={{ textDecoration: "none" }} to='/'>
+        <Button id='buttonMUI' variant='outlined'>
+          TRY AGAIN
+        </Button>
+      </Link>
     </>
   );
 }
