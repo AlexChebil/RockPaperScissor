@@ -6,10 +6,12 @@ import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/R
 import "./Game.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { scoreContext } from "../Context/ScoreContext";
 
-function Game({ ACTIONS, setScore }) {
+function Game({ ACTIONS }) {
   const { houseSelected } = useContext(houseContext);
   const [userWon, setUserWon] = useState();
+  const { setScore } = useContext(scoreContext);
 
   useEffect(() => {
     switch (ACTIONS.userSelected !== false) {
@@ -20,8 +22,7 @@ function Game({ ACTIONS, setScore }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          ACTIONS.SCORE += 1;
-          //console.log(ACTIONS.SCORE);
+          setScore((prev) => prev + 1);
         }
         break;
 
@@ -32,7 +33,7 @@ function Game({ ACTIONS, setScore }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          //setScore((prev) => prev + 1);
+          setScore((prev) => prev + 1);
         }
         break;
 
@@ -43,7 +44,7 @@ function Game({ ACTIONS, setScore }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          //setScore((prev) => prev + 1);
+          setScore((prev) => prev + 1);
         }
         break;
       default:
