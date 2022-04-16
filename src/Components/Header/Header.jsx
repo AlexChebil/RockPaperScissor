@@ -4,8 +4,8 @@ import "./HeaderMediaQ.scss";
 import { scoreContext } from "../Context/ScoreContext";
 import logoSVG from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/logo.svg";
 
-function Header() {
-  const { score, setScore } = useContext(scoreContext);
+function Header({ score }) {
+  // const { score } = useContext(scoreContext);
 
   return (
     <>
@@ -13,7 +13,7 @@ function Header() {
         <img src={logoSVG} alt='' />
         <div className='score'>
           <h2>SCORE</h2>
-          <h1>{score} </h1>
+          <h1>{score.score} </h1>
         </div>
       </div>
     </>

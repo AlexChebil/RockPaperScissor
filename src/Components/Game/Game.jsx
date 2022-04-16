@@ -11,7 +11,6 @@ import { scoreContext } from "../Context/ScoreContext";
 function Game({ ACTIONS }) {
   const { houseSelected } = useContext(houseContext);
   const [userWon, setUserWon] = useState();
-  const { setScore } = useContext(scoreContext);
 
   useEffect(() => {
     switch (ACTIONS.userSelected !== false) {
@@ -22,7 +21,6 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          setScore((prev) => prev + 1);
         }
         break;
 
@@ -33,7 +31,6 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          setScore((prev) => prev + 1);
         }
         break;
 
@@ -44,7 +41,6 @@ function Game({ ACTIONS }) {
           setUserWon("You Lost");
         } else {
           setUserWon("You Won");
-          setScore((prev) => prev + 1);
         }
         break;
       default:
@@ -52,10 +48,15 @@ function Game({ ACTIONS }) {
     }
   }, []);
 
+  function test(params) {
+    setTimeout(() => {
+      window.top.location.reload();
+    }, 25);
+  }
+
   return (
     <>
       <h1 className='winningState'> {userWon} </h1>
-
       <div className='flexCont'>
         <div
           className={`userSelected ${userWon === "You Won" ? "win" : null} `}
@@ -84,7 +85,7 @@ function Game({ ACTIONS }) {
         </div>
       </div>
       <Link style={{ textDecoration: "none" }} to='/'>
-        <Button id='buttonMUI' variant='outlined'>
+        <Button onClick={test} id='buttonMUI' variant='outlined'>
           TRY AGAIN
         </Button>
       </Link>

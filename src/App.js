@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import MainLogic from "./Components/MainLogic/MainLogic";
 import Header from "./Components/Header/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./Components/Game/Game";
+import BasicModal from "./Components/MUI/Modal/BasicModal";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { houseContext } from "./Components/Context/Context.jsx";
 import { scoreContext } from "./Components/Context/ScoreContext.jsx";
 
@@ -15,12 +16,12 @@ function App() {
   };
 
   const houseSelected = Object.values(ACTIONS)[Math.floor(Math.random() * 3)];
-  const [score, setScore] = useState(0);
+  const score = { score: 0 };
 
   return (
     <>
-      <scoreContext.Provider value={{ score, setScore }}>
-        <Header />
+      <scoreContext.Provider value={{}}>
+        <Header score={score} />
         <BrowserRouter>
           <houseContext.Provider value={{ houseSelected }}>
             <Routes>
@@ -29,6 +30,7 @@ function App() {
             </Routes>
           </houseContext.Provider>
         </BrowserRouter>
+        <BasicModal />
       </scoreContext.Provider>
     </>
   );
