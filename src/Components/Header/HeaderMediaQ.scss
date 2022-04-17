@@ -1,6 +1,19 @@
-@media all and (min-width:300px) and (max-width:500px) {
+@media all and (min-width:300px) and (max-width:1000px) {
     .headerContainer{
-        margin: 0;
+        margin:1em;
+        justify-content: space-between;
+    }
+    .score{
+        margin-left: 0em !important;
+    }
+}
+@media all and (min-width:1000px) and (max-width:1800px) {
+    .headerContainer{
+        margin: 1em;
+        justify-content: space-evenly;
+        width: 75%;
+        margin-right: auto;
+        margin-left: auto;
     }
     .score{
         margin-left: 0em !important;

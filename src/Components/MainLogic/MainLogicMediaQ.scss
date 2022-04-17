@@ -1,0 +1,37 @@
+
+@media all and (min-width:300px) and (max-width:700px) {
+    
+    .rockPaperScissor{
+        margin: 1em 3em !important
+    }
+}
+@media all and (min-width:300px) and (max-width:1000px) {
+    .Proceed{
+            h1{
+            font-size: 4em;
+            padding: .5em 0;
+            margin: 0 20%;
+            
+        }
+    }
+    .line{
+        display: none !important;
+    }
+    .mainGameFlexCont{
+        margin-top: 20em;
+    }
+    
+}
+
+
+
+@media all and (min-width:1001px) and (max-width:1700px) {
+    .Proceed{
+            h1{
+            font-size: 4em;
+            padding: .5em 0;
+            margin: 0 30%;
+            
+        }
+    }
+}

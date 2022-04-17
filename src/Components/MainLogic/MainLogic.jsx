@@ -3,6 +3,7 @@ import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockP
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
 import "./MainLogic.scss";
+import "./MainLogicMediaQ.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
