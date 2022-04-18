@@ -1,0 +1,26 @@
+@media all and (min-width:300px) and (max-width:1000px) {
+    .winningState{
+        margin: 1em ;
+    }
+    .flexCont{
+        flex-wrap: wrap;
+        margin: 2em;
+        div{
+            margin: 2em 0;
+        }
+    }
+}
+
+@media all and (min-width:1001px) and (max-width:1800px) {
+    .winningState{
+        margin: 1em 5em ;
+    }
+    .flexCont{
+        flex-wrap: wrap;
+        margin: 2em;
+        div{
+            margin: 2em 0;
+        }
+    }
+}
+

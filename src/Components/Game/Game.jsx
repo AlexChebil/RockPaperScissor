@@ -4,6 +4,7 @@ import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockP
 import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
 import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
 import "./Game.scss";
+import "./GameMediaQ.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { scoreContext } from "../Context/ScoreContext";
@@ -60,6 +61,7 @@ function Game({ ACTIONS }) {
       <div className='flexCont'>
         <div
           className={`userSelected ${userWon === "You Won" ? "win" : null} `}
+          //the win class in css makes the image bigger
         >
           {ACTIONS.userSelected && ACTIONS.userSelected === ACTIONS.PAPER ? (
             <img src={paperSvg} alt='' />
@@ -74,6 +76,7 @@ function Game({ ACTIONS }) {
 
         <div
           className={`houseSelected ${userWon === "You Lost" ? "win" : null}`}
+          //the win class in css makes the image bigger
         >
           {houseSelected === ACTIONS.PAPER ? (
             <img src={paperSvg} alt='' />
