@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { houseContext } from "../Context/Context";
-import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-rock.svg";
-import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
-import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
+import rockSvg from "../../Assets/icon-rock.svg";
+import paperSvg from "../../Assets/icon-paper.svg";
+import scissorsSvg from "../../Assets/icon-scissors.svg";
 import "./Game.scss";
 import "./GameMediaQ.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { scoreContext } from "../Context/ScoreContext";
 
 function Game({ ACTIONS }) {
   const { houseSelected } = useContext(houseContext);
