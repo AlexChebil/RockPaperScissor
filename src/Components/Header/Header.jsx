@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Header.scss";
 import "./HeaderMediaQ.scss";
 import { scoreContext } from "../Context/ScoreContext";
-import logoSVG from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/logo.svg";
-
+import logoSVG from "../../Assets/logo.svg";
 function Header({ score }) {
   // const { score } = useContext(scoreContext);
 
