@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
-import rockSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-rock.svg";
-import paperSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-paper.svg";
-import scissorsSvg from "/Users/alex_/Documents/_WORK/rock-paper-scissors-game/RockPaperScissor/src/Assets/icon-scissors.svg";
+import rockSvg from "../../Assets/icon-rock.svg";
+import paperSvg from "../../Assets/icon-paper.svg";
+import scissorsSvg from "../../Assets/icon-scissors.svg";
 import "./MainLogic.scss";
 import "./MainLogicMediaQ.scss";
 import Button from "@mui/material/Button";
