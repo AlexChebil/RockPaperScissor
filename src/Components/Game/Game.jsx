@@ -7,10 +7,13 @@ import "./Game.scss";
 import "./GameMediaQ.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { scoreContext } from "../Context/ScoreContext";
 
 function Game({ ACTIONS }) {
   const { houseSelected } = useContext(houseContext);
   const [userWon, setUserWon] = useState();
+
+  const { score, setscore } = useContext(scoreContext);
 
   useEffect(() => {
     switch (ACTIONS.userSelected !== false) {

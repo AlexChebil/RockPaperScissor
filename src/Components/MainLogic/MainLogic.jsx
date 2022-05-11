@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 import rockSvg from "../../Assets/icon-rock.svg";
 import paperSvg from "../../Assets/icon-paper.svg";
@@ -52,7 +52,6 @@ function MainLogic({ ACTIONS }) {
   return (
     <>
       <div className='mainGame'>
-        <button onClick={() => audio.play()}>aaaaaa</button>;
         <div className='Proceed'>
           <h1>{ACTIONS.userSelected.toUpperCase()}</h1>
           <Link style={{ textDecoration: "none" }} to='/Game'>

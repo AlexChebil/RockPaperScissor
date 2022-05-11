@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useState } from "react";
 import MainLogic from "./Components/MainLogic/MainLogic";
 import Header from "./Components/Header/Header";
 import Game from "./Components/Game/Game";
@@ -16,12 +16,12 @@ function App() {
   };
 
   const houseSelected = Object.values(ACTIONS)[Math.floor(Math.random() * 3)];
-  const score = { score: 0 };
+  const [score, setscore] = useState(0);
 
   return (
     <>
-      <scoreContext.Provider value={{}}>
-        <Header score={score} />
+      <scoreContext.Provider value={{ score, setscore }}>
+        <Header />
         <BrowserRouter>
           <houseContext.Provider value={{ houseSelected }}>
             <Routes>
