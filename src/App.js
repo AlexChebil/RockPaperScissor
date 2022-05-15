@@ -6,7 +6,7 @@ import BasicModal from "./Components/MUI/Modal/BasicModal";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { houseContext } from "./Components/Context/Context.jsx";
 import { scoreContext } from "./Components/Context/ScoreContext.jsx";
-
+// STILL learing SQL
 function App() {
   const ACTIONS = {
     ROCK: "rock",
